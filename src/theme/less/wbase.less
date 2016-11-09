@@ -1,0 +1,250 @@
+.an-step {
+    -webkit-animation-timing-function: step-start;
+    animation-timing-function: step-start;
+}
+
+._br-bg-pos-frames(@width, @height, @rowCount, @colCount) {
+    @per: 1%;
+    @rowIndex: @rowCount - 1;
+    @colIndex: @colCount - 1;
+    .genCol(@row) {
+        .loopCol(@col) when (@col<@colCount) {
+            @per0: @per*(@row*@colCount + @col)*100/((@rowCount*@colCount)-1);
+            @{per0}
+            {
+                opacity:1;
+                background-position: -(@col)*@width -@row*@height;
+            }
+            .loopCol((@col + 1));
+        }
+        .loopCol(0);
+    }
+    .genRow(@row) when (@row>=0) {
+        .genCol(@row);
+        .genRow((@row - 1));
+    }
+    .genRow(@rowIndex);
+}
+
+._br-bg-trans-frames(@width, @height, @rowCount, @colCount) {
+    @per: 1%;
+    @rowIndex: @rowCount - 1;
+    @colIndex: @colCount - 1;
+    .genCol(@row) {
+        .loopCol(@col) when (@col<@colCount) {
+            @per0: @per*(@row*@colCount + @col)*100/((@rowCount*@colCount)-1);
+            @{per0}
+            {
+                opacity:1;
+                ._br-transform(translate3d(-(@col)*@width,-@row*@height,0));
+            }
+            .loopCol((@col + 1));
+        }
+        .loopCol(0);
+    }
+    .genRow(@row) when (@row>=0) {
+        .genCol(@row);
+        .genRow((@row - 1));
+    }
+    .genRow(@rowIndex);
+}
+
+
+._br_delay(@minate) {
+    animation-delay: @minate !important;
+    -o-animation-delay: @minate !important;
+    -webkit-animation-delay: @minate !important;
+    -moz-animation-delay: @minate !important;
+}
+
+._br_origin(@minate) {
+    transform-origin: @minate;
+    -o-transform-origin: @minate;
+    -webkit-transform-origin: @minate;
+    -moz-transform-origin: @minate;
+}
+
+._br_duration(@minate) {
+    animation-duration: @minate !important;
+    -o-animation-duration: @minate !important;
+    -webkit-animation-duration: @minate !important;
+    -moz-animation-duration: @minate !important;
+}
+
+._br_count(@minate) {
+    animation-iteration-count: @minate !important;
+    -o-animation-iteration-count: @minate !important;
+    -webkit-animation-iteration-count: @minate !important;
+    -moz-animation-iteration-count: @minate !important;
+}
+
+._br_name(@minate) {
+    animation-name: @minate !important;
+    -o-animation-name: @minate !important;
+    -webkit-animation-name: @minate !important;
+    -moz-animation-name: @minate !important;
+}
+
+._br-transform(@css) {
+    transform: @css;
+    -o-transform: @css;
+    -webkit-transform: @css;
+    -moz-transform: @css;
+}
+
+._br-transition(@css) {
+    transition: @css;
+    -moz-transition: @css;
+    -webkit-transition: @css;
+    -o-transition: @css;
+}
+
+._br-animation(@css) {
+    animation: @css;
+    -o-animation: @css;
+    -webkit-animation: @css;
+    -moz-animation: @css;
+}
+
+._br-keyframes(@name) {
+    @-webkit-keyframes @name {
+        .-frames(-webkit-);
+    }
+    @-moz-keyframes @name {
+        .-frames(-moz-);
+    }
+    @keyframes @name {
+        .-frames();
+    }
+}
+
+._br-position(@left, @top, @width, @height, @url) {
+    position: absolute;
+    left: @left;
+    top: @top;
+    width: @width;
+    height: @height;
+    background-image: url(@url);
+    background-repeat: no-repeat;
+}
+
+._br-position(@left, @top, @width, @height) {
+    position: absolute;
+    left: @left;
+    top: @top;
+    width: @width;
+    height: @height;
+    background-repeat: no-repeat;
+}
+
+._br-position(@left, @top) {
+    position: absolute;
+    left: @left;
+    top: @top;
+}
+
+._brp(@left, @top, @width, @height, @url) {
+    position: relative;
+    left: @left;
+    top: @top;
+    width: @width;
+    height: @height;
+    background-image: url(@url);
+    background-repeat: no-repeat;
+}
+
+._brp(@left, @top, @width, @height) {
+    position: relative;
+    left: @left;
+    top: @top;
+    width: @width;
+    height: @height;
+    background-repeat: no-repeat;
+}
+
+._brp(@left, @top) {
+    position: relative;
+    left: @left;
+    top: @top;
+}
+
+._bp(@left, @top, @width, @height, @url) {
+    left: @left;
+    top: @top;
+    width: @width;
+    height: @height;
+    background-image: url(@url);
+    background-repeat: no-repeat;
+}
+
+._bp(@left, @top, @width, @height) {
+    left: @left;
+    top: @top;
+    width: @width;
+    height: @height;
+    background-repeat: no-repeat;
+}
+
+._bp(@left, @top) {
+    left: @left;
+    top: @top;
+}
+
+._br-p(@left, @top, @width, @height, @url) {
+    position: absolute;
+    left: @left;
+    top: @top;
+    width: @width;
+    height: @height;
+    background-image: url(@url);
+    background-repeat: no-repeat;
+}
+
+._br-p(@left, @top, @width, @height) {
+    position: absolute;
+    left: @left;
+    top: @top;
+    width: @width;
+    height: @height;
+    background-repeat: no-repeat;
+}
+
+._br-p(@left, @top) {
+    position: absolute;
+    left: @left;
+    top: @top;
+}
+
+._br-position(@left, @top, @url) {
+    position: absolute;
+    left: @left;
+    top: @top;
+    width: image-width(@url);
+    height: image-height(@url);
+    background-image: url(@url);
+    background-repeat: no-repeat;
+}
+
+._br-perspective(@distance) {
+    perspective: @distance;
+    -webkit-perspective: @distance;
+    -moz-perspective: @distance;
+    -ms-perspective: @distance;
+    -o-perspective: @distance;
+}
+
+._br-perspective-origin(@minate) {
+    perspective-origin: @minate;
+    -webkit-perspective-origin: @minate;
+    -ms-perspective-origin: @minate;
+    -moz-perspective-origin: @minate;
+    -o-perspective-origin: @minate;
+}
+
+._br-transform-style(@minate) {
+    transform-style: @minate;
+    -webkit-transform-style: @minate;
+    -moz-transform-style: @minate;
+    -ms-transform-style: @minate;
+    -o-transform-style: @minate;
+}

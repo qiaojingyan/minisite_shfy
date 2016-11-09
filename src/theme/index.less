@@ -1,0 +1,45 @@
+html,
+body {
+    width: 640px;
+    height: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+    background-color: white;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+}
+
+@media (min-width: 768px) {
+    body {
+        zoom: 0.5;
+    }
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: "微软雅黑";
+    user-select: none;
+    -webkit-user-selcet: none;
+}
+
+
+
+@imgUrl: 'images';
+@textcolor : #931d22;
+@mu2_switch_time: 1s;
+@import "less/wbase.less";
+
+.content{
+    ._br-position(0,0,100%,100%);
+}
+
+
+@import "less/common.less";
+@import "less/main.less";
+

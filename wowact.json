@@ -1,0 +1,40 @@
+{
+	"description": "grunt data config",
+	"developDir": {
+		"srcPath": "src/",
+		"devPath": "dev/",
+		"destPath": "dist/"
+	},
+	"taskConfig": {
+		"html": "index.html",
+		"less": {
+			"files": ["theme/index.less"]
+		},
+		"requirejs": {
+			"config": "theme/main.js",
+			"out": "theme/main.dist.js"
+		},
+		"copy": {
+			"files": ["**", "!**/*.{less,js,css}", "!theme/common/**","!theme/tpl/**","!theme/less/**","!theme/js/**","**/require.min.js"]
+		},
+		"uglifyjs": {
+			"files": []
+		},
+		"imagemin": {
+			"jpg": ["**/*.jpg"],
+			"png": ["**/*.png"]
+		},
+		"commonJSUrl": {
+			"local": "",
+			"server": ""
+		},
+		"url": {
+			"local": "",
+			"server": ""
+		},
+		"preload": {
+			"files": ["**/*.png", "**/*.jpg", "**/*.gif","**/*.mp3","!theme/common/loading_2/**"]
+		}
+	}
+
+}
